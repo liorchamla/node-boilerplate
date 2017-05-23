@@ -4,8 +4,8 @@
   "description": ",-----.,--.                  ,--. ,---.   ,--.,------.  ,------.     '  .--./|  | ,---. ,--.,--. ,-|  || o   \\  |  ||  .-.  \\ |  .---'     |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \\  :|  `--,      '  '--'\\|  |' '-' ''  ''  '\\ `-' | .'  /   |  ||  '--'  /|  `---.      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'     -----------------------------------------------------------------",
   "main": "app.js",
   "scripts": {
-    "start": "node ./app.js",
-    "watch": "nodemon ./app.js",
+    "start": "node ./start.js",
+    "watch": "nodemon ./start.js",
     "dev": "concurrently \"npm run watch\" \"npm run assets\" --names \"💻,📦\" --prefix name",
     "build": "webpack --display-max-modules 0 --config webpack.prod.js",
     "assets": "webpack -w --display-max-modules 0 --config webpack.dev.js"
@@ -16,8 +16,13 @@
     "axios": "^0.16.1",
     "body-parser": "^1.17.2",
     "concurrently": "^3.4.0",
+    "dotenv": "^4.0.0",
     "express": "^4.15.3",
-    "pug": "^2.0.0-rc.1"
+    "moment": "^2.18.1",
+    "mongoose": "^4.10.2",
+    "mongoose-mongodb-errors": "0.0.2",
+    "pug": "^2.0.0-rc.1",
+    "slugs": "^0.1.3"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",

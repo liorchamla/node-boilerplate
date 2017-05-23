@@ -2,6 +2,7 @@ const express = require('express');
 const routes = require('./config/routes');
 const path = require('path');
 const app = express();
+const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 // Moteurs de vues
@@ -15,15 +16,15 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-
+// Mise en place des helpers qui seront disponibles dans les locals (donc dans les vues)
 app.use((req, res, next) => {
-    res.locals.h = {
-        siteName: "Lior's Boilerplate - Node, Express, Pug, WebPack",
-        headline: "Lior's Boilerplate"
-    };
+    res.locals.h = require('./helpers');
     next();
 })
 
+/**
+ * Mise en place des routes qui se trouvent dans le fichier config/routes.js
+ */
 app.use('/', routes);
 
-app.listen(process.env.PORT);
+module.exports = app;
