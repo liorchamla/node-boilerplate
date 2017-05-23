@@ -1,0 +1,13 @@
+extends ../layout
+
+block content
+    section.hero.is-primary
+        .hero-body
+            .container
+                h1.title= page.title
+                if page.subtitle
+                    h2.subtitle= page.subtitle
+    section.content
+        .container
+            - const text = page.text.split('\n').map(p => `<p>${p}</p>`).join('');
+            div !{text}

@@ -1,0 +1,23 @@
+extends ../layout
+
+block content
+    section.hero.is-primary
+        .hero-body
+            .container
+                h1.title= title
+                h2.subtitle= subtitle
+    section.content
+        .container
+            .columns
+                each page in pages
+                    .column.is-one-third
+                        .card
+                            header.card-header
+                                p.card-header-title= page.title
+                            .card-content
+                                - const text = page.text.split(' ').slice(0, 15).join(' ') + ' ...'
+                                .content= text
+                            footer.card-footer
+                                a.card-footer-item(href=`/post/${page.slug}`) Voir
+                                a.card-footer-item Editer
+                                a.card-footer-item Supprimer

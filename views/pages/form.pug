@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    section.hero.is-primary
+        .hero-body
+            .container
+                h1.title= title
+                h2.subtitle= subtitle
+    section
+        .container
+            form(action="/post/", method="POST")
+                .field
+                    label.label Titre
+                    p.control
+                        input.input(name="title" required type='text', placeholder='Titre de la page')
+                .field
+                    label.label Sous-titre
+                    p.control
+                        input.input(name="subtitle" type='text', placeholder='Sous-titre de la page (optionnel)')
+                .field
+                    label.label Slug
+                    p.control
+                        input.input(name="slug" type='text', placeholder='URL simplifiée (optionnel)')
+                .field
+                    label.label Texte
+                    p.control
+                        textarea.textarea(name="text" required placeholder='Texte de l\'article')
+                .field.is-grouped
+                    p.control
+                        button.button.is-primary(type='submit') Sauvegarder
+                    p.control
+                        button.button.is-link(onclick="window.history.back()") Cancel
