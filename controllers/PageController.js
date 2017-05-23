@@ -1,3 +1,3 @@
 exports.home = (req, res, next) => {
-    res.render('homepage.pug', {title: "Lior's Boilerplate !", subtitle: "Node, Express, Pug, Webpack, Bulma"});
+    res.render('homepage.pug', {title: "Home", herotitle: "Lior's Boilerplate", herosubtitle: "Node, Express, Pug, Webpack, Bulma"});
 }
