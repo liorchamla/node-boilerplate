@@ -2,13 +2,19 @@ const express = require('express');
 const routes = require('./config/routes');
 const path = require('path');
 const app = express();
+const bodyParser = require('body-parser');
 
+// Moteurs de vues
+app.set('views', path.join(__dirname, 'views')); // Dossier contenant les vues 
+app.set('view engine', 'pug'); // On utilise le moteur de vues PUG
 
-app.set('views', path.join(__dirname, 'views')); // this is the folder where we keep our pug files
-app.set('view engine', 'pug'); // we use the engine pug, mustache or EJS work great too
-
-// serves up static files from the public folder. Anything in public/ will just be served up as the file it is
+// Fichiers publics (JS, CSS, images, etc)
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Utilisation de bodyParser pour lire la requête et générer un objet body dans la requête (req)
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 
 app.use((req, res, next) => {
     res.locals.h = {
